@@ -15,6 +15,9 @@
 		F042678227952F6D00DAADE8 /* GithubMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042678127952F6D00DAADE8 /* GithubMobileTests.swift */; };
 		F042678C27952F6D00DAADE8 /* GithubMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042678B27952F6D00DAADE8 /* GithubMobileUITests.swift */; };
 		F04267A02795371700DAADE8 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042679F2795371700DAADE8 /* AppConstants.swift */; };
+		F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A22795413900DAADE8 /* WebserviceProtocol.swift */; };
+		F04267A5279541EF00DAADE8 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A4279541EF00DAADE8 /* Webservice.swift */; };
+		F04267A72795444600DAADE8 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A62795444600DAADE8 /* AppErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		F042678727952F6D00DAADE8 /* GithubMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F042678B27952F6D00DAADE8 /* GithubMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubMobileUITests.swift; sourceTree = "<group>"; };
 		F042679F2795371700DAADE8 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F04267A22795413900DAADE8 /* WebserviceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceProtocol.swift; sourceTree = "<group>"; };
+		F04267A4279541EF00DAADE8 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		F04267A62795444600DAADE8 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 		F042679D279536AA00DAADE8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F04267A12795411F00DAADE8 /* Protocols  */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -160,8 +167,18 @@
 			isa = PBXGroup;
 			children = (
 				F042679F2795371700DAADE8 /* AppConstants.swift */,
+				F04267A62795444600DAADE8 /* AppErrors.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F04267A12795411F00DAADE8 /* Protocols  */ = {
+			isa = PBXGroup;
+			children = (
+				F04267A22795413900DAADE8 /* WebserviceProtocol.swift */,
+				F04267A4279541EF00DAADE8 /* Webservice.swift */,
+			);
+			path = "Protocols ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +312,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04267A72795444600DAADE8 /* AppErrors.swift in Sources */,
+				F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */,
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,
 				F04267A02795371700DAADE8 /* AppConstants.swift in Sources */,
+				F04267A5279541EF00DAADE8 /* Webservice.swift in Sources */,
 				F042676D27952F6A00DAADE8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
