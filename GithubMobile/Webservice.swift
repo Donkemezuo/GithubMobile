@@ -14,7 +14,7 @@ class Webservice: WebserviceProtocol {
         self.urlSession = urlSession
     }
     
-    func fetchUserRepos(username: String, completionHandler: @escaping (QueryErrors?, Data?) -> ()) {
+    func fetchUserRepos(username: String, completionHandler: @escaping (QueryErrors?, FetchUserReposResponseModel?) -> ()) {
         let endpointString = QueryEndPoint.userRepos(username: username).endPointURL
         guard let reposURL = URL(string: endpointString)
         else {
@@ -26,7 +26,12 @@ class Webservice: WebserviceProtocol {
                 completionHandler(.failedRequest(destination: error.localizedDescription), nil)
                 return;
             } else if let responseData = responseData {
-                completionHandler(nil, responseData)
+                do {
+                    let fetchUserReposResponseModel = try JSONDecoder().decode(FetchUserReposResponseModel.self, from: responseData)
+                    completionHandler(nil, fetchUserReposResponseModel)
+                } catch {
+                    completionHandler(.jsonParse, nil)
+                }
             }
         }
         dataTask.resume()

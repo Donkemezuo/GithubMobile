@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QueryErrors {
+enum QueryErrors: LocalizedError, Equatable {
     case invalidURL(urlString: String)
     case jsonParse
     case failedRequest(destination: String)

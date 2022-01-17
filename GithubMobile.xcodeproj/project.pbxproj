@@ -18,6 +18,10 @@
 		F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A22795413900DAADE8 /* WebserviceProtocol.swift */; };
 		F04267A5279541EF00DAADE8 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A4279541EF00DAADE8 /* Webservice.swift */; };
 		F04267A72795444600DAADE8 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A62795444600DAADE8 /* AppErrors.swift */; };
+		F04267AA27954C3400DAADE8 /* FetchUserReposWebserviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267A927954C3400DAADE8 /* FetchUserReposWebserviceTest.swift */; };
+		F04267AF27954D6A00DAADE8 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267AE27954D6A00DAADE8 /* MockURLProtocol.swift */; };
+		F04267B127954E8B00DAADE8 /* MockWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267B027954E8B00DAADE8 /* MockWebservice.swift */; };
+		F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		F04267A22795413900DAADE8 /* WebserviceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceProtocol.swift; sourceTree = "<group>"; };
 		F04267A4279541EF00DAADE8 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		F04267A62795444600DAADE8 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		F04267A927954C3400DAADE8 /* FetchUserReposWebserviceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposWebserviceTest.swift; sourceTree = "<group>"; };
+		F04267AE27954D6A00DAADE8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		F04267B027954E8B00DAADE8 /* MockWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebservice.swift; sourceTree = "<group>"; };
+		F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 		F042678027952F6D00DAADE8 /* GithubMobileTests */ = {
 			isa = PBXGroup;
 			children = (
+				F04267A827954BC600DAADE8 /* Fetch Repos */,
 				F042678127952F6D00DAADE8 /* GithubMobileTests.swift */,
 			);
 			path = GithubMobileTests;
@@ -138,6 +147,7 @@
 		F042679A2795362100DAADE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +189,40 @@
 				F04267A22795413900DAADE8 /* WebserviceProtocol.swift */,
 			);
 			path = "Protocols ";
+			sourceTree = "<group>";
+		};
+		F04267A827954BC600DAADE8 /* Fetch Repos */ = {
+			isa = PBXGroup;
+			children = (
+				F04267AC27954D2600DAADE8 /* Models */,
+				F04267AB27954D0B00DAADE8 /* Network */,
+			);
+			path = "Fetch Repos";
+			sourceTree = "<group>";
+		};
+		F04267AB27954D0B00DAADE8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F04267A927954C3400DAADE8 /* FetchUserReposWebserviceTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F04267AC27954D2600DAADE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F04267AD27954D3E00DAADE8 /* Mocks */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F04267AD27954D3E00DAADE8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F04267AE27954D6A00DAADE8 /* MockURLProtocol.swift */,
+				F04267B027954E8B00DAADE8 /* MockWebservice.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04267A72795444600DAADE8 /* AppErrors.swift in Sources */,
+				F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */,
 				F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */,
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,
 				F04267A02795371700DAADE8 /* AppConstants.swift in Sources */,
@@ -325,6 +370,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04267B127954E8B00DAADE8 /* MockWebservice.swift in Sources */,
+				F04267AF27954D6A00DAADE8 /* MockURLProtocol.swift in Sources */,
+				F04267AA27954C3400DAADE8 /* FetchUserReposWebserviceTest.swift in Sources */,
 				F042678227952F6D00DAADE8 /* GithubMobileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
