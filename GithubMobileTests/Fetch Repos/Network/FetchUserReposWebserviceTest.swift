@@ -9,13 +9,13 @@ import XCTest
 @testable import GithubMobile
 
 class FetchUserReposWebserviceTest: XCTestCase {
-    var sut: Webservice!
+    var sut: MockWebservice!
     
     override func setUp() {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let urlSession = URLSession(configuration: configuration)
-        sut = Webservice(urlSession: urlSession)
+        sut = MockWebservice(urlSession: urlSession)
     }
     
     override func tearDown() {
@@ -36,14 +36,46 @@ class FetchUserReposWebserviceTest: XCTestCase {
         let expectation = self.expectation(description: "An username string expectation ")
         // Act
         sut.fetchUserRepos(username: "") { responseError, responseData in
-            XCTAssertEqual(responseError, QueryErrors.invalidURL(urlString: ""))
-            XCTAssertNil(responseError, "When empty username is provided, responseError should return NILL but it is not returning NILL")
+            // Assert
+            XCTAssertEqual(responseError, QueryErrors.invalidUsername)
+            XCTAssertNotNil(responseError, "When empty username is provided, should return error but it is not returning Error")
             expectation.fulfill()
         }
-        // Assert
         self.wait(for: [expectation], timeout: 2)
     }
     
+    func testFetchUserReposWebservice_WhenValidUsernameProvided_ShouldReturnSuccess() {
+        // Arrange
+        var jsonArr = [[String:Any]]()
+        var jsonDict = [String:Any]()
+        jsonDict["name"] = "9square"
+        jsonArr.append(jsonDict)
+        let jsonData = try? JSONSerialization.data(withJSONObject: jsonArr, options: .prettyPrinted)
+        MockURLProtocol.stubResponse = jsonData
+        let expectation = self.expectation(description: "When a valid username is provided, should return data but it is not returning data")
+        // Act
+        sut.fetchUserRepos(username: "Donkemezuo") { responseError, responseData in
+            // Assert
+            XCTAssertNil(responseError)
+            XCTAssertGreaterThan(responseData?.userRepos.count ?? 0, 0)
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 2)
+    }
     
-    
+    func testFetchUserReposWebservice_WhenDidReceivedDifferentJSONResponse_ErrorTookPlace() {
+        // Arrange
+        let jsonString = "{\"path\":\"/users\", \"error\":\"Internal Server Error\"}"
+        let jsonData = jsonString.data(using: .utf8)
+        MockURLProtocol.stubResponse = jsonData
+        let expectation = self.expectation(description: "fetchUserRepos() method expectation for a response that contains a different JSON structure")
+        // Act
+        sut.fetchUserRepos(username: "Donkemezuo") { responseError, responseData in
+            // Assert
+            XCTAssertNil(responseData, "Expect responseData to be NIL but it is returning a value")
+            XCTAssertEqual(responseError, QueryErrors.jsonParse, "fetchUserRepos() method did not return expected model parsing error")
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 2)
+    }
 }

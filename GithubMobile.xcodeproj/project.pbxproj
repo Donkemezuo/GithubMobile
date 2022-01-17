@@ -22,6 +22,7 @@
 		F04267AF27954D6A00DAADE8 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267AE27954D6A00DAADE8 /* MockURLProtocol.swift */; };
 		F04267B127954E8B00DAADE8 /* MockWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267B027954E8B00DAADE8 /* MockWebservice.swift */; };
 		F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */; };
+		F04267B5279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04267B4279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F04267AE27954D6A00DAADE8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		F04267B027954E8B00DAADE8 /* MockWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebservice.swift; sourceTree = "<group>"; };
 		F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposResponseModel.swift; sourceTree = "<group>"; };
+		F04267B4279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepoCommitsResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */,
+				F04267B4279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				F04267A72795444600DAADE8 /* AppErrors.swift in Sources */,
 				F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */,
+				F04267B5279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift in Sources */,
 				F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */,
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,
 				F04267A02795371700DAADE8 /* AppConstants.swift in Sources */,

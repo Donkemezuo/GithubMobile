@@ -13,4 +13,7 @@ struct FetchUserReposResponseModel: Codable {
 
 struct UserRepo: Codable {
     let reponame: String
+    enum CodingKeys: String, CodingKey {
+        case reponame = "name"
+    }
 }
