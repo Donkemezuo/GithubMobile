@@ -33,12 +33,23 @@ class MockWebservice: WebserviceProtocol {
         }
     }
     
-    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryErrors?, Data?) -> ()) {
+    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryErrors?, FetchRepoCommitsResponseModel?) -> ()) {
         isRepoCommitsMethodCalled = true
+        guard !username.isEmpty else {
+            completionHandler(.invalidUsername, nil)
+            return;
+        }
+        guard !repoName.isEmpty else {
+            completionHandler(.invalidReponame, nil)
+            return;
+        }
         if shouldReturnError {
             completionHandler(.failedRequest(destination: "Fetch request was not successful"), nil)
         } else {
-            completionHandler(nil, nil)
+            let commitAuthor = CommitAuthor(name: "Raymond", date: "2022-01-17T22:54:13Z")
+            let commitDetails = CommitDetails(author: commitAuthor, message: "Added Unit Test for fetchUserReposwebservices")
+            let commit = Commit(commit: commitDetails)
+            completionHandler(nil, FetchRepoCommitsResponseModel(repoCommits: [commit]))
         }
     }
 }

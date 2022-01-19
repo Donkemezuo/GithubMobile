@@ -38,7 +38,7 @@ class FetchUserReposWebserviceTest: XCTestCase {
         sut.fetchUserRepos(username: "") { responseError, responseData in
             // Assert
             XCTAssertEqual(responseError, QueryErrors.invalidUsername)
-            XCTAssertNotNil(responseError, "When empty username is provided, should return error but it is not returning Error")
+            XCTAssertNotNil(responseError, "When empty username string is provided, should return error but it is not returning Error")
             expectation.fulfill()
         }
         self.wait(for: [expectation], timeout: 2)
