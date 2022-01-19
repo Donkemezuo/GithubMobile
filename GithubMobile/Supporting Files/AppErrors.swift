@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QueryErrors: LocalizedError, Equatable {
+enum QueryError: LocalizedError, Equatable {
     case invalidURL(urlString: String)
     case jsonParse
     case invalidUsername

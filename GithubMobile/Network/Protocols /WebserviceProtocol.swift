@@ -8,6 +8,6 @@
 import Foundation
 
 protocol WebserviceProtocol: AnyObject {
-    func fetchUserRepos(username: String, completionHandler: @escaping(QueryErrors?, FetchUserReposResponseModel?) -> ())
-    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping(QueryErrors?, FetchRepoCommitsResponseModel?) -> ())
+    func fetchUserRepos(username: String, completionHandler: @escaping(QueryError?, FetchUserReposResponseModel?) -> ())
+    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping(QueryError?, FetchRepoCommitsResponseModel?) -> ())
 }

@@ -18,7 +18,7 @@ class MockWebservice: WebserviceProtocol {
         self.urlSession = urlSession
     }
     
-    func fetchUserRepos(username: String, completionHandler: @escaping (QueryErrors?, FetchUserReposResponseModel?) -> ()) {
+    func fetchUserRepos(username: String, completionHandler: @escaping (QueryError?, FetchUserReposResponseModel?) -> ()) {
         isFetchUserRepoMethodCalled = true
         guard !username.isEmpty else {
             completionHandler(.invalidUsername, nil)
@@ -33,7 +33,7 @@ class MockWebservice: WebserviceProtocol {
         }
     }
     
-    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryErrors?, FetchRepoCommitsResponseModel?) -> ()) {
+    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryError?, FetchRepoCommitsResponseModel?) -> ()) {
         isRepoCommitsMethodCalled = true
         guard !username.isEmpty else {
             completionHandler(.invalidUsername, nil)

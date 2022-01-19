@@ -37,7 +37,7 @@ class FetchUserReposWebserviceTest: XCTestCase {
         // Act
         sut.fetchUserRepos(username: "") { responseError, responseData in
             // Assert
-            XCTAssertEqual(responseError, QueryErrors.invalidUsername)
+            XCTAssertEqual(responseError, QueryError.invalidUsername)
             XCTAssertNotNil(responseError, "When empty username string is provided, should return error but it is not returning Error")
             expectation.fulfill()
         }
@@ -73,7 +73,7 @@ class FetchUserReposWebserviceTest: XCTestCase {
         sut.fetchUserRepos(username: "Donkemezuo") { responseError, responseData in
             // Assert
             XCTAssertNil(responseData, "Expect responseData to be NIL but it is returning a value")
-            XCTAssertEqual(responseError, QueryErrors.jsonParse, "fetchUserRepos() method did not return expected model parsing error")
+            XCTAssertEqual(responseError, QueryError.jsonParse, "fetchUserRepos() method did not return expected model parsing error")
             expectation.fulfill()
         }
         self.wait(for: [expectation], timeout: 2)

@@ -14,7 +14,7 @@ class Webservice: WebserviceProtocol {
         self.urlSession = urlSession
     }
     
-    func fetchUserRepos(username: String, completionHandler: @escaping (QueryErrors?, FetchUserReposResponseModel?) -> ()) {
+    func fetchUserRepos(username: String, completionHandler: @escaping (QueryError?, FetchUserReposResponseModel?) -> ()) {
         guard !username.isEmpty else {
             completionHandler(.invalidUsername, nil)
             return;
@@ -25,6 +25,7 @@ class Webservice: WebserviceProtocol {
             completionHandler(.invalidURL(urlString: endpointString), nil)
             return;
         }
+        print(reposURL.absoluteString)
         let dataTask = urlSession.dataTask(with: reposURL) { responseData, response, error in
             if let error = error {
                 completionHandler(.failedRequest(destination: error.localizedDescription), nil)
@@ -38,10 +39,12 @@ class Webservice: WebserviceProtocol {
                   }
             if let responseData = responseData {
                 do {
-                    let fetchUserReposResponseModel = try JSONDecoder().decode(FetchUserReposResponseModel.self, from: responseData)
+                    let repos = try JSONDecoder().decode([UserRepo].self, from: responseData)
+                    let fetchUserReposResponseModel = FetchUserReposResponseModel(userRepos: repos)
                     completionHandler(nil, fetchUserReposResponseModel)
                     return;
                 } catch {
+                    print(String(describing: error))
                     print(error.localizedDescription)
                     completionHandler(.jsonParse, nil)
                     return;
@@ -51,7 +54,7 @@ class Webservice: WebserviceProtocol {
         dataTask.resume()
     }
     
-    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryErrors?, FetchRepoCommitsResponseModel?) -> ()) {
+    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryError?, FetchRepoCommitsResponseModel?) -> ()) {
         let endpointString = QueryEndPoint.repoCommits(username: username, repoName: repoName).endPointURL
         guard let commitsURL = URL(string: endpointString)
         else {

@@ -30,7 +30,7 @@ class FetchRepoCommitsWebserviceTest: XCTestCase {
         // Act
         sut.fetchRepoCommits(username: "Donkemezuo", repoName: "") { responseError, responseData in
             // Assert
-            XCTAssertEqual(responseError, QueryErrors.invalidReponame)
+            XCTAssertEqual(responseError, QueryError.invalidReponame)
             XCTAssertNotNil(responseError, "When empty reponame string is provided, should return error but it is not returning error")
             expectation.fulfill()
         }

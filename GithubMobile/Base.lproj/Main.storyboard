@@ -32,25 +32,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search repo by github username" translatesAutoresizingMaskIntoConstraints="NO" id="bS2-Ul-5Ky">
-                                <rect key="frame" x="10" y="88" width="394" height="40"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="CGE-l9-4PX"/>
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aHh-HL-zOk">
+                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.10584857772182954" green="0.56341158837567418" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="bS2-Ul-5Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="4gO-EH-VE6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bS2-Ul-5Ky" secondAttribute="trailing" constant="10" id="Oet-rZ-dUY"/>
+                            <constraint firstItem="bS2-Ul-5Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4gO-EH-VE6"/>
+                            <constraint firstItem="aHh-HL-zOk" firstAttribute="top" secondItem="bS2-Ul-5Ky" secondAttribute="bottom" id="5gv-bu-pX2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bS2-Ul-5Ky" secondAttribute="trailing" id="Oet-rZ-dUY"/>
+                            <constraint firstItem="aHh-HL-zOk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pWS-MA-1c8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aHh-HL-zOk" secondAttribute="trailing" id="pvQ-Yk-nzc"/>
                             <constraint firstItem="bS2-Ul-5Ky" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sC6-jf-vxG"/>
+                            <constraint firstAttribute="bottom" secondItem="aHh-HL-zOk" secondAttribute="bottom" id="vOp-Vl-1x8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IDt-wh-aDG"/>
                     <connections>
                         <outlet property="searchBar" destination="bS2-Ul-5Ky" id="680-1y-Rew"/>
+                        <outlet property="userReposTableV" destination="aHh-HL-zOk" id="gz8-TO-F2o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
