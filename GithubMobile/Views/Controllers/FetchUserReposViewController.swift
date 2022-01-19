@@ -11,10 +11,19 @@ class FetchUserReposViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var userReposTableV: UITableView!
     private let appManager = AppDataManager()
+    private var doneFetching = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.userReposTableV.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Test title"
+        setupNavigationTitle()
+        registerCells()
+        conformToDataSource()
         fetchData()
     }
     
@@ -25,11 +34,45 @@ class FetchUserReposViewController: UIViewController {
                 // Handle erorr appropriately
                 print(error.errorMessage)
             } else {
-            self.appManager.userRepos.map{print($0.createdDate)}
+                self.doneFetching = true
             }
         }
-        
     }
     
+    private func setupNavigationTitle() {
+        title = appManager.titleText
+    }
+    
+    private func registerCells() {
+        userReposTableV.register(UINib(nibName: RepoTableViewCell.cellID, bundle: nil), forCellReuseIdentifier: RepoTableViewCell.cellID)
+    }
+    
+    private func conformToDataSource() {
+        userReposTableV.dataSource = self
+        userReposTableV.delegate = self
+    }
 
+}
+
+extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appManager.userRepos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let repoCell = tableView.dequeueReusableCell(withIdentifier: RepoTableViewCell.cellID, for: indexPath) as? RepoTableViewCell else { return UITableViewCell() }
+        let repo = appManager.userRepos[indexPath.row]
+        let cellViewModel = RepoCellViewModel(reponame: repo.reponame, repoDescription: repo.description ?? "Repo has no description")
+        repoCell.viewModel = cellViewModel
+        repoCell.viewCommitsButton = {
+            
+        }
+        return repoCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    
 }

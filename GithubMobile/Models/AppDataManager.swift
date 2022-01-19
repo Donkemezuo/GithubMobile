@@ -10,8 +10,10 @@ import Foundation
 class AppDataManager {
     private let webservice = Webservice()
     var currentSearchedUser = "Donkemezuo"
+    var titleText: String {
+        return "\(currentSearchedUser)'s repos"
+    }
     var userRepos = [UserRepo]()
-    
     func fetchUserRepos(username name: String, completionHandler: @escaping(QueryError?) -> ()) {
         webservice.fetchUserRepos(username: name) { [weak self] (responseError, responseData ) in
             if let responseError = responseError {
@@ -22,5 +24,4 @@ class AppDataManager {
             }
         }
     }
-    
 }
