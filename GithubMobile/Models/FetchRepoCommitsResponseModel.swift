@@ -12,6 +12,12 @@ struct FetchRepoCommitsResponseModel: Codable {
 }
 struct Commit: Codable {
     let commit: CommitDetails
+    let commitHash: String
+    
+    enum CodingKeys: String, CodingKey {
+        case commit
+        case commitHash = "sha"
+    }
 }
 struct CommitDetails: Codable {
     let author: CommitAuthor

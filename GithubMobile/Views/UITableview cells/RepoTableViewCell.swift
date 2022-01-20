@@ -8,6 +8,7 @@
 import UIKit
 
 class RepoTableViewCell: UITableViewCell {
+    static let cellID = "RepoTableViewCell"
     @IBOutlet weak var reponameLabel: UILabel!
     @IBOutlet weak var repoDescriptionTxtView: UITextView!
     var viewCommitsButton: (() -> ())?
@@ -19,8 +20,6 @@ class RepoTableViewCell: UITableViewCell {
             self.setupUI(cellViewModel: viewModel)
         }
     }
-    
-    static let cellID = "RepoTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,7 +33,6 @@ class RepoTableViewCell: UITableViewCell {
         if let block = viewCommitsButton {
             block()
         }
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

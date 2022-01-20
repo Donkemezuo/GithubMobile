@@ -65,13 +65,21 @@ extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelega
         let cellViewModel = RepoCellViewModel(reponame: repo.reponame, repoDescription: repo.description ?? "Repo has no description")
         repoCell.viewModel = cellViewModel
         repoCell.viewCommitsButton = {
-            
+            self.showRepoCommits(selectedRepo: repo.reponame)
         }
         return repoCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+    private func showRepoCommits(selectedRepo: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let commitsViewController = storyboard.instantiateViewController(identifier: "FetchRepoCommitsViewController", creator: { coder in
+             return FetchRepoCommitsViewController(coder: coder, reponame: selectedRepo, username: self.appManager.currentSearchedUser)
+        })
+        navigationController?.pushViewController(commitsViewController, animated: true)
     }
     
     

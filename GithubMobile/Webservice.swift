@@ -75,11 +75,12 @@ class Webservice: WebserviceProtocol {
                   }
             if let responseData = responseData {
                 do {
-                    let fetchRepoCommitsResponseModel = try JSONDecoder().decode(FetchRepoCommitsResponseModel.self, from: responseData)
+                    let commits = try JSONDecoder().decode([Commit].self, from: responseData)
+                    let fetchRepoCommitsResponseModel = FetchRepoCommitsResponseModel(repoCommits: commits)
                     completionHandler(nil, fetchRepoCommitsResponseModel)
                     return;
                 } catch {
-                    print(error.localizedDescription)
+                    print(String(describing: error))
                     completionHandler(.jsonParse, nil)
                     return;
                 }

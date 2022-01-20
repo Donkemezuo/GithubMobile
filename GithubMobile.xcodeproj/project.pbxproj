@@ -30,6 +30,10 @@
 		F067769A2797B479000AC494 /* FetchUserReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06776992797B479000AC494 /* FetchUserReposViewController.swift */; };
 		F067769D2797BD59000AC494 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F067769C2797BD59000AC494 /* AppDataManager.swift */; };
 		F0B90150279889360069B2AE /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9014F279889360069B2AE /* RepoCellViewModel.swift */; };
+		F0B90152279894880069B2AE /* FetchRepoCommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */; };
+		F0B9015527989CDE0069B2AE /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */; };
+		F0B9015627989CDE0069B2AE /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B9015427989CDE0069B2AE /* CommitTableViewCell.xib */; };
+		F0B9015827989F070069B2AE /* CommitCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9015727989F070069B2AE /* CommitCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		F06776992797B479000AC494 /* FetchUserReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposViewController.swift; sourceTree = "<group>"; };
 		F067769C2797BD59000AC494 /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
 		F0B9014F279889360069B2AE /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
+		F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepoCommitsViewController.swift; sourceTree = "<group>"; };
+		F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
+		F0B9015427989CDE0069B2AE /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
+		F0B9015727989F070069B2AE /* CommitCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				F0606E602797CC4600C62A21 /* RepoTableViewCell.swift */,
+				F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */,
+				F0B9015427989CDE0069B2AE /* CommitTableViewCell.xib */,
 				F0606E612797CC4600C62A21 /* RepoTableViewCell.xib */,
 			);
 			path = "UITableview cells";
@@ -261,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				F06776992797B479000AC494 /* FetchUserReposViewController.swift */,
+				F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				F0B9014F279889360069B2AE /* RepoCellViewModel.swift */,
+				F0B9015727989F070069B2AE /* CommitCellViewModel.swift */,
 			);
 			path = TableviewCellViewModels;
 			sourceTree = "<group>";
@@ -381,6 +393,7 @@
 				F042677427952F6D00DAADE8 /* Assets.xcassets in Resources */,
 				F042677227952F6A00DAADE8 /* Main.storyboard in Resources */,
 				F0606E632797CC4600C62A21 /* RepoTableViewCell.xib in Resources */,
+				F0B9015627989CDE0069B2AE /* CommitTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,11 +422,14 @@
 				F0606E5E2797C4F400C62A21 /* String+Extensions.swift in Sources */,
 				F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */,
 				F04267B5279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift in Sources */,
+				F0B90152279894880069B2AE /* FetchRepoCommitsViewController.swift in Sources */,
 				F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */,
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,
 				F04267A02795371700DAADE8 /* AppConstants.swift in Sources */,
 				F04267A5279541EF00DAADE8 /* Webservice.swift in Sources */,
+				F0B9015827989F070069B2AE /* CommitCellViewModel.swift in Sources */,
 				F042676D27952F6A00DAADE8 /* SceneDelegate.swift in Sources */,
+				F0B9015527989CDE0069B2AE /* CommitTableViewCell.swift in Sources */,
 				F0B90150279889360069B2AE /* RepoCellViewModel.swift in Sources */,
 				F067769A2797B479000AC494 /* FetchUserReposViewController.swift in Sources */,
 				F067769D2797BD59000AC494 /* AppDataManager.swift in Sources */,
