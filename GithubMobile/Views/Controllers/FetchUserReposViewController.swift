@@ -15,6 +15,7 @@ class FetchUserReposViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.userReposTableV.reloadData()
+                self.setupNavigationTitle()
             }
         }
     }
@@ -24,7 +25,9 @@ class FetchUserReposViewController: UIViewController {
         setupNavigationTitle()
         registerCells()
         conformToDataSource()
+        conformToDelegates()
         fetchData()
+        (searchBar.value(forKey: "searchField") as? UITextField)?.textColor = .black
     }
     
     private func fetchData() {
@@ -49,7 +52,11 @@ class FetchUserReposViewController: UIViewController {
     
     private func conformToDataSource() {
         userReposTableV.dataSource = self
+    }
+    
+    private func conformToDelegates() {
         userReposTableV.delegate = self
+        searchBar.delegate = self
     }
 
 }
@@ -81,6 +88,23 @@ extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelega
         })
         navigationController?.pushViewController(commitsViewController, animated: true)
     }
+}
+
+extension FetchUserReposViewController: UISearchBarDelegate {
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text,
+              !searchText.isEmpty else { return }
+        appManager.currentSearchedUser = searchText
+        self.fetchData()
+        self.view.resignFirstResponder()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.searchTextField.resignFirstResponder()
+        searchBar.searchTextField.endEditing(true)
+    }
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
     
 }
