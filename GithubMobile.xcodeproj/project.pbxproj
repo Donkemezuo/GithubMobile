@@ -28,6 +28,9 @@
 		F067769A2797B479000AC494 /* FetchUserReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06776992797B479000AC494 /* FetchUserReposViewController.swift */; };
 		F067769D2797BD59000AC494 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F067769C2797BD59000AC494 /* AppDataManager.swift */; };
 		F09E58C2279A913C00CA578D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E58C1279A913C00CA578D /* UIViewController+Extension.swift */; };
+		F09E58C5279A92FC00CA578D /* ErrorMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E58C3279A92FC00CA578D /* ErrorMessageTableViewCell.swift */; };
+		F09E58C6279A92FC00CA578D /* ErrorMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09E58C4279A92FC00CA578D /* ErrorMessageTableViewCell.xib */; };
+		F09E58C8279A938E00CA578D /* ErrorMessageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E58C7279A938E00CA578D /* ErrorMessageCellViewModel.swift */; };
 		F0B90150279889360069B2AE /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9014F279889360069B2AE /* RepoCellViewModel.swift */; };
 		F0B90152279894880069B2AE /* FetchRepoCommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */; };
 		F0B9015527989CDE0069B2AE /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */; };
@@ -70,6 +73,9 @@
 		F06776992797B479000AC494 /* FetchUserReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposViewController.swift; sourceTree = "<group>"; };
 		F067769C2797BD59000AC494 /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
 		F09E58C1279A913C00CA578D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F09E58C3279A92FC00CA578D /* ErrorMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageTableViewCell.swift; sourceTree = "<group>"; };
+		F09E58C4279A92FC00CA578D /* ErrorMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorMessageTableViewCell.xib; sourceTree = "<group>"; };
+		F09E58C7279A938E00CA578D /* ErrorMessageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageCellViewModel.swift; sourceTree = "<group>"; };
 		F0B9014F279889360069B2AE /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepoCommitsViewController.swift; sourceTree = "<group>"; };
 		F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,6 +240,8 @@
 			children = (
 				F0606E602797CC4600C62A21 /* RepoTableViewCell.swift */,
 				F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */,
+				F09E58C3279A92FC00CA578D /* ErrorMessageTableViewCell.swift */,
+				F09E58C4279A92FC00CA578D /* ErrorMessageTableViewCell.xib */,
 				F0B9015427989CDE0069B2AE /* CommitTableViewCell.xib */,
 				F0606E612797CC4600C62A21 /* RepoTableViewCell.xib */,
 			);
@@ -253,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				F0B9014F279889360069B2AE /* RepoCellViewModel.swift */,
+				F09E58C7279A938E00CA578D /* ErrorMessageCellViewModel.swift */,
 				F0B9015727989F070069B2AE /* CommitCellViewModel.swift */,
 			);
 			path = TableviewCellViewModels;
@@ -339,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09E58C6279A92FC00CA578D /* ErrorMessageTableViewCell.xib in Resources */,
 				F042677727952F6D00DAADE8 /* LaunchScreen.storyboard in Resources */,
 				F042677427952F6D00DAADE8 /* Assets.xcassets in Resources */,
 				F042677227952F6A00DAADE8 /* Main.storyboard in Resources */,
@@ -361,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09E58C8279A938E00CA578D /* ErrorMessageCellViewModel.swift in Sources */,
 				F04267A72795444600DAADE8 /* AppErrors.swift in Sources */,
 				F0606E5E2797C4F400C62A21 /* String+Extensions.swift in Sources */,
 				F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */,
@@ -371,6 +382,7 @@
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,
 				F04267A02795371700DAADE8 /* AppConstants.swift in Sources */,
 				F04267A5279541EF00DAADE8 /* Webservice.swift in Sources */,
+				F09E58C5279A92FC00CA578D /* ErrorMessageTableViewCell.swift in Sources */,
 				F0B9015827989F070069B2AE /* CommitCellViewModel.swift in Sources */,
 				F042676D27952F6A00DAADE8 /* SceneDelegate.swift in Sources */,
 				F0B9015527989CDE0069B2AE /* CommitTableViewCell.swift in Sources */,

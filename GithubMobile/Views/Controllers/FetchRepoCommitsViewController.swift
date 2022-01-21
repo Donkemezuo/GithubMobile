@@ -57,11 +57,12 @@ class FetchRepoCommitsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
-    /// A function to register uitableview cells 
+    /// A function to register uitableview cells
     private func registerCells() {
         commitsTableView.register(UINib(nibName: CommitTableViewCell.cellID, bundle: nil), forCellReuseIdentifier: CommitTableViewCell.cellID)
+        commitsTableView.register(UINib(nibName: ErrorMessageTableViewCell.cellID, bundle: nil), forCellReuseIdentifier: ErrorMessageTableViewCell.cellID)
     }
-    // A function to conform to the Datasource and delegates 
+    // A function to conform to the Datasource and delegates
     private func conformToDataSource() {
         commitsTableView.dataSource = self
         commitsTableView.delegate = self
@@ -70,18 +71,25 @@ class FetchRepoCommitsViewController: UIViewController {
 
 extension FetchRepoCommitsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appDataManager.repoCommits.count
+        return appDataManager.repoCommits.isEmpty ? 1 : appDataManager.repoCommits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let commitCell = tableView.dequeueReusableCell(withIdentifier: CommitTableViewCell.cellID, for: indexPath) as? CommitTableViewCell else { return UITableViewCell() }
-        let commit = appDataManager.repoCommits[indexPath.row]
-        let viewModel = CommitCellViewModel(authorname: commit.commit.author.name, message: commit.commit.message, hashString: commit.commitHash)
-        commitCell.viewModel = viewModel
-        return commitCell
+        if  appDataManager.repoCommits.isEmpty {
+            guard let errorMessageCell = tableView.dequeueReusableCell(withIdentifier: ErrorMessageTableViewCell.cellID, for: indexPath) as? ErrorMessageTableViewCell else { return UITableViewCell() }
+            let viewModel = ErrorMessageCellViewModel(errorMessage: "\(appDataManager.currentSearchedUser) have not committed on this repo")
+            errorMessageCell.viewModel = viewModel
+            return errorMessageCell
+        } else {
+            guard let commitCell = tableView.dequeueReusableCell(withIdentifier: CommitTableViewCell.cellID, for: indexPath) as? CommitTableViewCell else { return UITableViewCell() }
+            let commit = appDataManager.repoCommits[indexPath.row]
+            let viewModel = CommitCellViewModel(authorname: commit.commit.author.name, message: commit.commit.message, hashString: commit.commitHash)
+            commitCell.viewModel = viewModel
+            return commitCell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView().estimatedRowHeight
+        return appDataManager.repoCommits.isEmpty ? tableView.frame.height : UITableView().estimatedRowHeight
     }
 }
