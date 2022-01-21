@@ -31,30 +31,34 @@ class FetchUserReposViewController: UIViewController {
         (searchBar.value(forKey: "searchField") as? UITextField)?.textColor = .black
     }
     
+    /// A function to fetch data
     private func fetchData() {
         appManager.fetchUserRepos(username: appManager.currentSearchedUser) { [weak self] error in
             guard let self = self else { return }
-            if let error = error {
-                // Handle erorr appropriately
-                print(error.errorMessage)
+            if let _ = error {
+                self.showAlert(title: "Error encountered", message: "Unexpected error encountered")
             } else {
                 self.doneFetching = true
             }
         }
     }
     
+    /// A function to set navigation bar title
     private func setupNavigationTitle() {
         title = appManager.titleText
     }
     
+    /// A function to register tableview cell
     private func registerCells() {
         userReposTableV.register(UINib(nibName: RepoTableViewCell.cellID, bundle: nil), forCellReuseIdentifier: RepoTableViewCell.cellID)
     }
     
+    /// A function to conform to the UITableview Datasource 
     private func conformToDataSource() {
         userReposTableV.dataSource = self
     }
     
+    /// A function to conform to the delegates
     private func conformToDelegates() {
         userReposTableV.delegate = self
         searchBar.delegate = self
@@ -82,6 +86,8 @@ extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelega
         return 150
     }
     
+    /// A function to handle the segueing to details view when view commits button is pressed
+    /// - Parameter selectedRepo: a selected repo
     private func showRepoCommits(selectedRepo: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let commitsViewController = storyboard.instantiateViewController(identifier: "FetchRepoCommitsViewController", creator: { coder in

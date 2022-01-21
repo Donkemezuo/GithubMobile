@@ -17,6 +17,11 @@ class AppDataManager {
     }
     var userRepos = [UserRepo]()
     var repoCommits = [Commit]()
+    
+    /// A function to fetch a given user's repos
+    /// - Parameters:
+    ///   - name: github username
+    ///   - completionHandler: response
     func fetchUserRepos(username name: String, completionHandler: @escaping(QueryError?) -> ()) {
         webservice.fetchUserRepos(username: name) { [weak self] (responseError, responseData ) in
             if let responseError = responseError {
@@ -28,6 +33,11 @@ class AppDataManager {
         }
     }
     
+    /// A function to fetch a given repo's commits
+    /// - Parameters:
+    ///   - name: name of github user
+    ///   - rname: reponame
+    ///   - completionHandler: response
     func fetchRepoCommits(username name: String, reponame rname: String, completionHandler: @escaping(QueryError?) -> ()) {
         webservice.fetchRepoCommits(username: name, repoName: rname) {[weak self] (responseError, responseData) in
             if let responseError = responseError {

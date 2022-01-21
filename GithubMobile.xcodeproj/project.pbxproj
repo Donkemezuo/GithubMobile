@@ -27,6 +27,7 @@
 		F06776982797AE6D000AC494 /* FetchRepoCommitsWebserviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06776972797AE6D000AC494 /* FetchRepoCommitsWebserviceTest.swift */; };
 		F067769A2797B479000AC494 /* FetchUserReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06776992797B479000AC494 /* FetchUserReposViewController.swift */; };
 		F067769D2797BD59000AC494 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F067769C2797BD59000AC494 /* AppDataManager.swift */; };
+		F09E58C2279A913C00CA578D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E58C1279A913C00CA578D /* UIViewController+Extension.swift */; };
 		F0B90150279889360069B2AE /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9014F279889360069B2AE /* RepoCellViewModel.swift */; };
 		F0B90152279894880069B2AE /* FetchRepoCommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */; };
 		F0B9015527989CDE0069B2AE /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */; };
@@ -68,6 +69,7 @@
 		F06776972797AE6D000AC494 /* FetchRepoCommitsWebserviceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepoCommitsWebserviceTest.swift; sourceTree = "<group>"; };
 		F06776992797B479000AC494 /* FetchUserReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserReposViewController.swift; sourceTree = "<group>"; };
 		F067769C2797BD59000AC494 /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
+		F09E58C1279A913C00CA578D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F0B9014F279889360069B2AE /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		F0B90151279894880069B2AE /* FetchRepoCommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepoCommitsViewController.swift; sourceTree = "<group>"; };
 		F0B9015327989CDE0069B2AE /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				F042679F2795371700DAADE8 /* AppConstants.swift */,
+				F09E58C1279A913C00CA578D /* UIViewController+Extension.swift */,
 				F04267A62795444600DAADE8 /* AppErrors.swift */,
 				F0606E5D2797C4F400C62A21 /* String+Extensions.swift */,
 			);
@@ -362,6 +365,7 @@
 				F0606E5E2797C4F400C62A21 /* String+Extensions.swift in Sources */,
 				F04267B3279559F800DAADE8 /* FetchUserReposResponseModel.swift in Sources */,
 				F04267B5279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift in Sources */,
+				F09E58C2279A913C00CA578D /* UIViewController+Extension.swift in Sources */,
 				F0B90152279894880069B2AE /* FetchRepoCommitsViewController.swift in Sources */,
 				F04267A32795413900DAADE8 /* WebserviceProtocol.swift in Sources */,
 				F042676B27952F6A00DAADE8 /* AppDelegate.swift in Sources */,

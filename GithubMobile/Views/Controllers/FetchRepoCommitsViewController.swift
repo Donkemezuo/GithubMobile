@@ -38,27 +38,30 @@ class FetchRepoCommitsViewController: UIViewController {
         conformToDataSource()
     }
     
+    /// A function to fetch a repo's commits
     private func fetchRepoCommits() {
         appDataManager.fetchRepoCommits(username: username, reponame: reponame) { [weak self] responseError in
             guard let self = self else { return }
-            if let responseError = responseError {
-                print(responseError.errorMessage)
+            if let _ = responseError {
+                self.showAlert(title: "Error encountered", message: "Unexpected error encountered")
             } else {
                 self.doneFetching = true
             }
         }
     }
     
+    /// A function to set navigation bar title
     private func setupNavigationTitle() {
         navigationItem.largeTitleDisplayMode = .never
         title = "Commits"
         navigationController?.navigationBar.tintColor = .white
     }
     
+    /// A function to register uitableview cells 
     private func registerCells() {
         commitsTableView.register(UINib(nibName: CommitTableViewCell.cellID, bundle: nil), forCellReuseIdentifier: CommitTableViewCell.cellID)
     }
-    
+    // A function to conform to the Datasource and delegates 
     private func conformToDataSource() {
         commitsTableView.dataSource = self
         commitsTableView.delegate = self
