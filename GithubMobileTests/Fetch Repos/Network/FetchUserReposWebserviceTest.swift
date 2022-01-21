@@ -69,6 +69,8 @@ class FetchUserReposWebserviceTest: XCTestCase {
         let jsonData = jsonString.data(using: .utf8)
         MockURLProtocol.stubResponse = jsonData
         let expectation = self.expectation(description: "fetchUserRepos() method expectation for a response that contains a different JSON structure")
+        sut.shouldReturnError = true
+        sut.responseErrorType = .jsonParse
         // Act
         sut.fetchUserRepos(username: "Donkemezuo") { responseError, responseData in
             // Assert

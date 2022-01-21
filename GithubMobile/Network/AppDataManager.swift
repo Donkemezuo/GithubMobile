@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// A data manager class 
 class AppDataManager {
     private let webservice = Webservice()
     var currentSearchedUser = "Donkemezuo"

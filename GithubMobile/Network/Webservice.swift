@@ -7,14 +7,19 @@
 
 import Foundation
 
+/// A web service class
 class Webservice: WebserviceProtocol {
     private var urlSession: URLSession
     
     init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
-    
-    func fetchUserRepos(username: String, completionHandler: @escaping (QueryError?, FetchUserReposResponseModel?) -> ()) {
+    /// A function to fetch a given user's repos
+    /// - Parameters:
+    ///   - username: a user's github username
+    ///   - completionHandler: fetch response
+    func fetchUserRepos(username: String,
+                        completionHandler: @escaping (QueryError?, FetchUserReposResponseModel?) -> ()) {
         guard !username.isEmpty else {
             completionHandler(.invalidUsername, nil)
             return;
@@ -25,7 +30,6 @@ class Webservice: WebserviceProtocol {
             completionHandler(.invalidURL(urlString: endpointString), nil)
             return;
         }
-        print(reposURL.absoluteString)
         let dataTask = urlSession.dataTask(with: reposURL) { responseData, response, error in
             if let error = error {
                 completionHandler(.failedRequest(destination: error.localizedDescription), nil)
@@ -44,8 +48,6 @@ class Webservice: WebserviceProtocol {
                     completionHandler(nil, fetchUserReposResponseModel)
                     return;
                 } catch {
-                    print(String(describing: error))
-                    print(error.localizedDescription)
                     completionHandler(.jsonParse, nil)
                     return;
                 }
@@ -54,7 +56,14 @@ class Webservice: WebserviceProtocol {
         dataTask.resume()
     }
     
-    func fetchRepoCommits(username: String, repoName: String, completionHandler: @escaping (QueryError?, FetchRepoCommitsResponseModel?) -> ()) {
+    
+    /// A function to fetch a user's commits on a repo
+    /// - Parameters:
+    ///   - username: name of the github user
+    ///   - repoName: name of the repo
+    ///   - completionHandler: fetch response
+    func fetchRepoCommits(username: String, repoName: String,
+                          completionHandler: @escaping (QueryError?, FetchRepoCommitsResponseModel?) -> ()) {
         let endpointString = QueryEndPoint.repoCommits(username: username, repoName: repoName).endPointURL
         guard let commitsURL = URL(string: endpointString)
         else {
@@ -80,7 +89,6 @@ class Webservice: WebserviceProtocol {
                     completionHandler(nil, fetchRepoCommitsResponseModel)
                     return;
                 } catch {
-                    print(String(describing: error))
                     completionHandler(.jsonParse, nil)
                     return;
                 }

@@ -137,7 +137,6 @@
 			children = (
 				F042679E279536EB00DAADE8 /* Supporting Files */,
 				F042679D279536AA00DAADE8 /* Network */,
-				F04267A4279541EF00DAADE8 /* Webservice.swift */,
 				F042679A2795362100DAADE8 /* Models */,
 				F042679B2795364400DAADE8 /* Views */,
 				F042679C2795365500DAADE8 /* ViewModels */,
@@ -173,7 +172,6 @@
 			children = (
 				F04267B2279559F800DAADE8 /* FetchUserReposResponseModel.swift */,
 				F04267B4279622C300DAADE8 /* FetchRepoCommitsResponseModel.swift */,
-				F067769C2797BD59000AC494 /* AppDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				F04267A12795411F00DAADE8 /* Protocols  */,
+				F067769C2797BD59000AC494 /* AppDataManager.swift */,
+				F04267A4279541EF00DAADE8 /* Webservice.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

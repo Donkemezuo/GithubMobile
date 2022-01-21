@@ -10,7 +10,6 @@ import Foundation
 struct FetchUserReposResponseModel: Codable {
     var userRepos: [UserRepo]
 }
-
 struct UserRepo: Codable {
     let reponame: String
     let repoCreatedString: String

@@ -11,6 +11,7 @@ class FetchUserReposViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var userReposTableV: UITableView!
     private let appManager = AppDataManager()
+    
     private var doneFetching = false {
         didSet {
             DispatchQueue.main.async {
@@ -58,7 +59,7 @@ class FetchUserReposViewController: UIViewController {
         userReposTableV.delegate = self
         searchBar.delegate = self
     }
-
+    
 }
 
 extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelegate {
@@ -83,8 +84,8 @@ extension FetchUserReposViewController: UITableViewDataSource, UITableViewDelega
     
     private func showRepoCommits(selectedRepo: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let commitsViewController = storyboard.instantiateViewController(identifier: "FetchRepoCommitsViewController", creator: { coder in
-             return FetchRepoCommitsViewController(coder: coder, reponame: selectedRepo, username: self.appManager.currentSearchedUser)
+        let commitsViewController = storyboard.instantiateViewController(identifier: "FetchRepoCommitsViewController", creator: { coder in
+            return FetchRepoCommitsViewController(coder: coder, reponame: selectedRepo, username: self.appManager.currentSearchedUser)
         })
         navigationController?.pushViewController(commitsViewController, animated: true)
     }
@@ -96,12 +97,11 @@ extension FetchUserReposViewController: UISearchBarDelegate {
         guard let searchText = searchBar.text,
               !searchText.isEmpty else { return }
         appManager.currentSearchedUser = searchText
-        self.fetchData()
-        self.view.resignFirstResponder()
+        fetchData()
+        view.endEditing(true)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.searchTextField.resignFirstResponder()
-        searchBar.searchTextField.endEditing(true)
+        resignFirstResponder()
     }
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         return true

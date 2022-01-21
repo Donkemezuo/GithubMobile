@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// A repo tableview cell class
 class RepoTableViewCell: UITableViewCell {
     static let cellID = "RepoTableViewCell"
     @IBOutlet weak var reponameLabel: UILabel!
@@ -15,30 +16,21 @@ class RepoTableViewCell: UITableViewCell {
     var viewModel: RepoCellViewModel? {
         didSet {
             guard let viewModel = viewModel else {
-                return;
+                return
             }
             self.setupUI(cellViewModel: viewModel)
         }
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         viewModel = nil
     }
+    
     @IBAction func viewRepoCommits(_ sender: UIButton) {
         if let block = viewCommitsButton {
             block()
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     private func setupUI(cellViewModel: RepoCellViewModel) {

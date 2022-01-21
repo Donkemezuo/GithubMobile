@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Commit tableview cell class
 class CommitTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var commitMessageLabel: UILabel!
@@ -18,14 +19,13 @@ class CommitTableViewCell: UITableViewCell {
             guard let viewModel = viewModel else {
                 return
             }
-            self.setupUI(viewModel: viewModel)
+            setupUI(viewModel: viewModel)
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.selectionStyle = .none
+        selectionStyle = .none
     }
     
     override func prepareForReuse() {
